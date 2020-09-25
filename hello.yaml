@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: display mesage
+    command: "uptime"
+    register: result
+  - debug:
+      msg: " {{ result.stdout_lines }}"

@@ -1,0 +1,7 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks: 
+  - name: Creating a User
+    user: 
+      name: Admin

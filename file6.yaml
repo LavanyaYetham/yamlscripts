@@ -1,0 +1,12 @@
+---
+- hosts: 192.168.2.102
+  gather_facts: no
+  tasks:
+  - name: Installing http 
+    yum:
+      name: httpd
+  - name: http service staring
+    service:
+      name: httpd
+      state: started
+  

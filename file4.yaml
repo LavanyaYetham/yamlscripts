@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks:
+  - name: creating Directory
+    file:
+      path: /root/Dir1
+      state: directory
+  - name: Creating file
+    file:
+      path: /root/Dir1/file1
+      state: touch
+- hosts: 192.168.2.102
+  gather_facts: no
+  tasks:
+#  - name: service stopping
+#    service:
+#      name: ntpd
+#      state: stopped
+  - name: serivece Statring
+    service:
+      name: ntpd
+      state: started

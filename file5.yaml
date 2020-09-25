@@ -1,0 +1,19 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks: 
+  - name: creating multiple Files in Present Location
+    file:
+      path: "{{ item }}"
+      state: touch
+    with_items:
+      - file1
+      - file2
+  - name: Creating Multiple file by Giving Locatio
+    file: 
+      path: "/tmp/{{ item }}"
+      state: touch
+    with_items:
+      - file1
+      - file2
+   

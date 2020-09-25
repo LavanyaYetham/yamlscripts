@@ -1,0 +1,31 @@
+---
+- hosts: localhost
+  gather_facts: no
+  tasks: 
+  - name: Lists
+    command: ls
+    register: result
+  - debug:
+      msg: "{{ result.stdout_lines }}"
+  - name: Load
+    command: uptime
+    register: a
+  - debug: 
+      msg: "{{ a.stdout_lines}}"
+- hosts: 192.168.2.102
+  gather_facts: no
+  tasks:
+  - name: hostname
+    command: hostname 
+    register: b
+  - debug:
+      msg: "{{ b.stdout_lines}}"
+  - name: file creation
+    file:
+      path: /root/lavs
+      state: touch
+  - name: creating directory
+    file:
+      path: /root/dir1
+      state: directory
+   

@@ -1,0 +1,17 @@
+---
+- hosts: all
+  gather_facts: no
+  tasks: 
+  - name: Desplay msg
+    command: date
+    register: result
+  - debug: 
+      msg:  "{{ result }}"
+- hosts: localhost
+  gather_facts: no
+  tasks: 
+  - name: Load average
+    command: uptime
+    register: result
+  - debug: 
+      msg: "{{ result }} "
